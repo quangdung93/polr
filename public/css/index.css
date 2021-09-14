@@ -1,6 +1,25 @@
+.btn{
+    line-height: 1.42857143;
+}
+
+#show-link-options{
+    margin-left: 10px;
+}
+
+.custom-link-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-link-text h2{
+    margin: 0;
+}
+
 .custom-url-field {
     display: inline;
-    width: 100px;
+    width: 200px;
+    margin-left: 10px;
 }
 
 .site-url-field {
@@ -17,7 +36,7 @@
 }
 
 .check-btn {
-    margin-bottom: 30px;
+    margin: 20px 0;
 }
 
 #link-availability-status {

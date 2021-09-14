@@ -9,7 +9,7 @@ use App\Helpers\LinkHelper;
 class LinkFactory {
     const MAXIMUM_LINK_LENGTH = 65535;
 
-    private static function formatLink($link_ending, $secret_ending=false) {
+    private static function formatLink($link_ending, $secret_ending = false) {
         /**
         * Given a link ending and a boolean indicating whether a secret ending is needed,
         * return a link formatted with app protocol, app address, and link ending.
@@ -26,8 +26,7 @@ class LinkFactory {
         return $short_url;
     }
 
-    public static function createLink($long_url, $is_secret=false, $custom_ending=null, $link_ip='127.0.0.1', $creator=false, $return_object=false, $is_api=false) {
-        /**
+    /**
         * Given parameters needed to create a link, generate appropriate ending and
         * return formatted link.
         *
@@ -39,23 +38,24 @@ class LinkFactory {
         * @param bool $return_object
         * @param bool $is_api
         * @return string $formatted_link
-        */
+    */
+    public static function createLink($long_url, $is_secret = false, $custom_ending = null, $link_ip = '127.0.0.1', $creator=false, $return_object=false, $is_api=false) {
 
         if (strlen($long_url) > self::MAXIMUM_LINK_LENGTH) {
             // If $long_url is longer than the maximum length, then
             // throw an Exception
-            throw new \Exception('Sorry, but your link is longer than the
-                maximum length allowed.');
+            throw new \Exception('Liên kết của bạn dài hơn chiều dài tối đa cho phép.');
         }
 
         $is_already_short = LinkHelper::checkIfAlreadyShortened($long_url);
 
         if ($is_already_short) {
-            throw new \Exception('Sorry, but your link already
-                looks like a shortened URL.');
+            throw new \Exception('Liên kết của bạn trông giống như một URL đã rút gọn!');
         }
 
-        if (!$is_secret && (!isset($custom_ending) || $custom_ending === '') && (LinkHelper::longLinkExists($long_url, $creator) !== false)) {
+        if (!$is_secret 
+            && (!isset($custom_ending) || $custom_ending === '') 
+            && (LinkHelper::longLinkExists($long_url, $creator) !== false)) {
             // if link is not specified as secret, is non-custom, and
             // already exists in Polr, lookup the value and return
             $existing_link = LinkHelper::longLinkExists($long_url, $creator);
@@ -78,6 +78,7 @@ class LinkFactory {
             $link_ending = $custom_ending;
         }
         else {
+
             if (env('SETTING_PSEUDORANDOM_ENDING')) {
                 // generate a pseudorandom ending
                 $link_ending = LinkHelper::findPseudoRandomEnding();

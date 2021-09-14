@@ -51,14 +51,14 @@ class LinkHelper {
         }
     }
 
-    static public function longLinkExists($long_url, $username=false) {
-        /**
-         * Provided a long link (string),
-         * check whether the link is in the DB.
-         * If a username is provided, only search for links created by the
-         * user.
-         * @return boolean
-         */
+    /**
+     * Provided a long link (string),
+     * check whether the link is in the DB.
+     * If a username is provided, only search for links created by the
+     * user.
+     * @return boolean
+    */
+    static public function longLinkExists($long_url, $username = false) {
         $link_base = Link::longUrl($long_url)
             ->where('is_custom', 0)
             ->where('secret_key', '');
@@ -89,15 +89,14 @@ class LinkHelper {
         return $is_valid_ending;
     }
 
+    /**
+     * Return an available pseudorandom string of length _PSEUDO_RANDOM_KEY_LENGTH,
+     * as defined in .env
+     * Edit _PSEUDO_RANDOM_KEY_LENGTH in .env if you wish to increase the length
+     * of the pseudorandom string generated.
+     * @return string
+     */
     static public function findPseudoRandomEnding() {
-        /**
-         * Return an available pseudorandom string of length _PSEUDO_RANDOM_KEY_LENGTH,
-         * as defined in .env
-         * Edit _PSEUDO_RANDOM_KEY_LENGTH in .env if you wish to increase the length
-         * of the pseudorandom string generated.
-         * @return string
-         */
-
         $pr_str = '';
         $in_use = true;
 

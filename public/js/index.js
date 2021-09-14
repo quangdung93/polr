@@ -38,6 +38,7 @@ $(function() {
             $('#link-availability-status').html(' <span style="color:red"><i class="fa fa-exclamation-circle"></i> An error occured. Try again</span>' + textstatus);
         });
     });
+    
     min = 1;
     max = 2;
     var i = Math.floor(Math.random() * (max - min + 1)) + min;

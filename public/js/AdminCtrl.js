@@ -171,7 +171,7 @@ polr.controller('AdminCtrl', function($scope, $compile, $timeout) {
             "columns": [
                 {className: 'wrap-text', data: 'short_url', name: 'short_url'},
                 {className: 'wrap-text', data: 'long_url', name: 'long_url'},
-                {data: 'clicks', name: 'clicks'},
+                {className: 'text-center', data: 'clicks', name: 'clicks'},
                 {data: 'created_at', name: 'created_at'}
             ]
         }, datatables_config));

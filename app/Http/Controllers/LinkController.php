@@ -29,6 +29,9 @@ class LinkController extends Controller {
         $this->validate($request, [
             'link-url' => 'required|url',
             'custom-ending' => 'alpha_dash'
+        ],[
+            'link-url.required' => 'Liên kết không được trống!',
+            'link-url.url' => 'Liên kết không đúng định dạng!',
         ]);
 
         $long_url = $request->input('link-url');

@@ -8,8 +8,8 @@
 <h1 class='title'>{{env('APP_NAME')}}</h1>
 
 <form method='POST' action='/shorten' role='form'>
-    <input type='url' autocomplete='off'
-        class='form-control long-link-input' placeholder='http://' name='link-url' />
+    <input type='text' autocomplete='off'
+        class='form-control long-link-input' placeholder='http:// or https://' name='link-url' />
 
     <div class='row' id='options' ng-cloak>
         <p>Customize link</p>

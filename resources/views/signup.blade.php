@@ -7,12 +7,11 @@
 @section('content')
 <div class='col-md-6'>
     <h2 class='title'>Register</h2>
-
     <form action='/signup' method='POST'>
         Username: <input type='text' name='username' class='form-control form-field' placeholder='Username' />
         Password: <input type='password' name='password' class='form-control form-field' placeholder='Password' />
         Email: <input type='email' name='email' class='form-control form-field' placeholder='Email' />
-
+        
         @if (env('POLR_ACCT_CREATION_RECAPTCHA'))
         <div class="g-recaptcha" data-sitekey="{{env('POLR_RECAPTCHA_SITE_KEY')}}"></div>
         @endif
