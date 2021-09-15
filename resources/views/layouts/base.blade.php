@@ -38,15 +38,18 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/toastr.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/feather.css" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('img/fpt-favicon.png') }}">
     @yield('css')
 </head>
 <body>
     @include('snippets.navbar')
-    <div class="container">
-        <div class="content-div @if (!isset($no_div_padding)) content-div-padding @endif @if (isset($large)) jumbotron large-content-div @endif">
-            @yield('content')
+    <div class="wrapper" style="background-image: url({{ asset('img/background.jpg') }})">
+        <div class="container">
+            <div class="content-div @if (!isset($no_div_padding)) content-div-padding @endif @if (isset($large)) jumbotron large-content-div @endif">
+                @yield('content')
+            </div>
         </div>
     </div>
 
@@ -63,7 +66,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         toastr["info"](`{{ str_replace('`', '\`', session('info')) }}`, "Info")
     @endif
     @if (Session::has('error'))
-        toastr["error"](`{{str_replace('`', '\`', session('error')) }}`, "Error")
+        toastr["error"](`{{str_replace('`', '\`', session('error')) }}`, "Lỗi")
     @endif
     @if (Session::has('warning'))
         toastr["warning"](`{{ str_replace('`', '\`', session('warning')) }}`, "Warning")
@@ -75,7 +78,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     @if (count($errors) > 0)
         // Handle Lumen validation errors
         @foreach ($errors->all() as $error)
-            toastr["error"](`{{ str_replace('`', '\`', $error) }}`, "Error")
+            toastr["error"](`{{ str_replace('`', '\`', $error) }}`, "Lỗi")
         @endforeach
     @endif
     </script>

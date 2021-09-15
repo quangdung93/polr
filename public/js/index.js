@@ -55,10 +55,10 @@ $(function() {
     function changeTips(tcase) {
         switch (tcase) {
             case 1:
-                setTip('Create an account to keep track of your links');
+                setTip('Hãy tạo một tài khoản để theo dõi các liên kết của bạn');
                 break;
             case 2:
-                setTip('Did you know you can change the URL ending by clicking on "Link Options"?');
+                setTip('Bạn có thể thay đổi liên kết rút gọn bằng cách nhấp vào "Tùy chọn"');
                 i = 1;
                 break;
         }

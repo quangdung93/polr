@@ -66,13 +66,12 @@ class LinkFactory {
             // has custom ending
             $ending_conforms = LinkHelper::validateEnding($custom_ending);
             if (!$ending_conforms) {
-                throw new \Exception('Custom endings
-                    can only contain alphanumeric characters, hyphens, and underscores.');
+                throw new \Exception('Đường dẫn rút gọn chỉ có thể chứa các ký tự chữ và số, dấu gạch nối và dấu gạch dưới');
             }
 
             $ending_in_use = LinkHelper::linkExists($custom_ending);
             if ($ending_in_use) {
-                throw new \Exception('This URL ending is already in use.');
+                throw new \Exception('Đường dẫn rút gọn này đã được sử dụng.');
             }
 
             $link_ending = $custom_ending;

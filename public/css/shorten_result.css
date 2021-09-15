@@ -27,7 +27,29 @@
     margin: 0 auto;
 }
 
-.input-group-addon {
-    padding: 0px 10px;
+#short_url{
+    border-color: #0c4da4;
+}
+
+#clipboard-copy.input-group-addon {
+    padding: 0px 15px;
     cursor: pointer;
+    color: #fff;
+    background-color: #0c4da4;
+    border: 1px solid #0c4da4;
+}
+
+#generate-qr-code{
+    margin-left: 10px;
+}
+
+#clipboard-copy i{
+    margin: 0;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .input-group {
+        width: 73vw;
+    }
 }

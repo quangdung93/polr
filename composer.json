@@ -29,6 +29,9 @@
         },
         "classmap": [
             "database/"
+        ],
+        "files": [
+            "app/Helpers/global.php"
         ]
     },
     "autoload-dev": {

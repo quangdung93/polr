@@ -5,14 +5,16 @@
 @endsection
 
 @section('content')
-<h1 class='title'>{{env('APP_NAME')}}</h1>
+<div class="logo">
+    <a href="/"><img width="150" src="{{ asset('img/fpt-icon.png') }}" alt="Logo"></a>
+</div>
+{{-- <h3 class='page-title color-blue'>{{env('APP_NAME')}}</h3> --}}
 
 <form method='POST' action='/shorten' role='form'>
-    <input type='text' autocomplete='off'
-        class='form-control long-link-input' placeholder='http:// or https://' name='link-url' />
+    <input type='text'  name='link-url' value="{{ old('link-url') }}" autocomplete='off' class='form-control long-link-input' placeholder='Nhập liên kết cần rút gọn...'/>
 
     <div class='row' id='options' ng-cloak>
-        <p>Customize link</p>
+        <p>Tùy chỉnh liên kết</p>
 
         @if (!env('SETTING_PSEUDORANDOM_ENDING'))
         {{-- Show secret toggle only if using counter-based ending --}}
@@ -29,16 +31,16 @@
         <div>
             <div class='custom-link-text'>
                 <h2 class='site-url-field'>{{env('APP_ADDRESS')}}/</h2>
-                <input type='text' autocomplete="off" class='form-control custom-url-field' name='custom-ending' />
+                <input type='text' name='custom-ending' autocomplete="off" class='form-control custom-url-field' placeholder="Nhập liên kết tùy chỉnh..." />
             </div>
             <div>
-                <a href='#' class='btn btn-success btn-xs check-btn' id='check-link-availability'>Check Availability</a>
+                <a href='#' class='btn btn-success btn-xs check-btn' id='check-link-availability'><i class="feather icon-search"></i> Kiểm tra</a>
                 <div id='link-availability-status'></div>
             </div>
         </div>
     </div>
-    <input type='submit' class='btn btn-info' id='shorten' value='Shorten' />
-    <a href='#' class='btn btn-warning' id='show-link-options'>Link Options</a>
+    <button type='submit' class='btn btn-info' id='shorten'><i class="feather icon-link"></i> Rút gọn</button>
+    <a href='#' class='btn btn-warning' id='show-link-options'><i class="feather icon-settings"></i> Tùy chọn</a>
     <input type="hidden" name='_token' value='{{csrf_token()}}' />
 </form>
 

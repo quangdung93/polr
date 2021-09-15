@@ -32,6 +32,7 @@ class LinkController extends Controller {
         ],[
             'link-url.required' => 'Liên kết không được trống!',
             'link-url.url' => 'Liên kết không đúng định dạng!',
+            'custom-ending.alpha_dash' => 'Đường dẫn rút gọn chỉ có thể chứa các chữ cái, số và dấu gạch ngang.',
         ]);
 
         $long_url = $request->input('link-url');

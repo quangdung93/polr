@@ -1,7 +1,3 @@
-.btn{
-    line-height: 1.42857143;
-}
-
 #show-link-options{
     margin-left: 10px;
 }
@@ -23,8 +19,9 @@
 }
 
 .site-url-field {
-    color: green;
+    color: #4db749;
     display: inline;
+    font-size: 27px;
 }
 
 .long-link-input {
@@ -37,6 +34,8 @@
 
 .check-btn {
     margin: 20px 0;
+    padding: 5px 10px;
+    background-color: #4db749;
 }
 
 #link-availability-status {
@@ -46,3 +45,12 @@
 .visibility-toggler {
     margin-bottom: 2em;
 }
+
+#shorten{
+    background-color: #0c4da4;
+}
+
+#show-link-options{
+    background-color: #f46f20;
+}
+
